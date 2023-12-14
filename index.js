@@ -33,13 +33,13 @@ app.use((req, res, next) => {
     next();
 })
 
-/*const {Query} = require("@VanillaCX/QueryCX");
-const {KEK} = require("@VanillaCX/Identity");
+const {Query} = require("@VanillaCX/QueryCX");
+//const {KEK} = require("@VanillaCX/Identity");
 
 const query = new Query({
     database: process.env.QUERYCX_DATABASE,
     collection: process.env.QUERYCX_COLLECTION
-});*/
+});
 
 app.get("/", async (req, res) => {
    
@@ -48,7 +48,7 @@ app.get("/", async (req, res) => {
 })
 
 app.get("/save-to-db", async (req, res) => {
-    /*try {
+    try {
         const time = Date.now();
         const document = {time: time, name: "Lee"};
         const result = await query.insertOne(document)
@@ -58,9 +58,9 @@ app.get("/save-to-db", async (req, res) => {
     
     } catch(error){
         console.log("insertOne error", error);
-    }*/
-    console.log("/save-to-db");
-    res.send("Not yet implemented")
+        res.send(error)
+    }
+    
 })
 
 app.get("/encrypt", async (req, res) => {
